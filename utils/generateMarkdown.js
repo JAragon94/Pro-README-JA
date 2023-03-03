@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Created a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) { 
     if (license !== 'no license') {
       return `
@@ -10,20 +9,19 @@ function renderLicenseBadge(license) {
     }
   }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Created a function that returns the license link
+
 function renderLicenseLink(license) {
     if (license !== 'no license') {
     return `
-    [${license}](https://choosealicense.com/licenses/${license})
+    [${license}](https://opensource.org/licenses/MIT/${license})
       `;
     } else {
       return ' ';
     }
   }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Created a function that returns the license section of README
 function renderLicenseSection(license) {
     if (license !== 'no license') {
     return `
@@ -35,6 +33,28 @@ function renderLicenseSection(license) {
       return ' ';
     }
    }
+
+function renderLicenseTOC(license) {
+    if (license !== 'no license') {
+    return `
+    * [License](#license)
+      `;
+    } else {
+      return ' ';
+    }
+   }
+
+  function renderContributingSection(confirmContributers, data) {
+    if (!confirmContributers) {
+      return `
+    Thank you for your interest in helping out; however, I will not be accepting contributions from third parties.
+      `;
+    } else {
+      return `
+    ${data}
+      `;
+    }
+  }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -58,16 +78,15 @@ function generateMarkdown(data) {
     ${data.installation}
     ## [Usage](#table-of-contents)
     ${data.usage}
-    
-    ${renderLicenseSection(data.license)}
     ## [Contributing](#table-of-contents)
-    
     ${renderContributingSection(data.confirmContributers, data.contribute)}
     ## [Tests](#table-of-contents)
     ${data.test}
     ## [Questions](#table-of-contents)
     Please contact me using the following links:
     [GitHub](https://github.com/${data.githubUsername})
+    [Email: ${data.email}](mailto:${data.email})
+    ${renderLicenseSection(data.license)}
   `;
   }
   

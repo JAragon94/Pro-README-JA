@@ -19,32 +19,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'githubUsername',
-        message: 'What is your GitHub Username? (Required)',
-        validate: githubInput => {
-            if (githubInput) {
-                return true;
-            } else {
-                console.log('Please enter your GitHub username!');
-                return false;
-            }
-        }
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email address? (Required)',
-        validate: githubInput => {
-            if (githubInput) {
-                return true;
-            } else {
-                console.log('Please enter your email address!');
-                return false;
-            }
-        }
-    },
-    {
-        type: 'input',
         name: 'what',
         message: 'What is your project and what problem will it solve? (Required)',
         validate: whatInput => {
@@ -98,7 +72,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Please provide instructions and examples for use. (Required)',
+        message: 'Please provide instructions for use. (Required)',
         validate: usageInput => {
             if (usageInput) {
                 return true;
@@ -152,13 +126,39 @@ const questions = [
                 return false;
             }
         }
+    },
+    {
+        type: 'input',
+        name: 'githubUsername',
+        message: 'What is your GitHub Username? (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address? (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+                return true;
+            } else {
+                console.log('Please enter your email address!');
+                return false;
+            }
+        }
     }
 ];
 
 // Function to write README file
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./README.md', fileContent, err => {
+        fs.writeFile('./dist/README.md', fileContent, err => {
             if (err) {
                 reject(err);
                 return;
@@ -166,7 +166,7 @@ const writeFile = fileContent => {
 
             resolve({
                 ok: true,
-                message: 'File created!'
+                message: 'File created! :)'
             });
         });
     });
