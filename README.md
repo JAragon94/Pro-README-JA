@@ -13,5 +13,6 @@ when you enter your GitHub username and Email address then this is added to the 
 then I am taken to the corresponding section of the README
 
 # Screenshot
-
+![Screenshot (14)](https://user-images.githubusercontent.com/120228686/222858546-9cf74c76-cf7b-44d5-95e9-90c15788449c.png)
 # Walkthrough Video
+https://youtu.be/sFQd0s3AvJ0
